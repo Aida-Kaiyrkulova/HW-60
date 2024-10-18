@@ -4,7 +4,7 @@ import { Message } from '../../types';
 import MessageList from '../../components/MessageList/MessageList.tsx';
 import MessageInput from '../../components/MessageInput/MessageInput.tsx'
 
-const API_URL = 'http://146.185.154.90:8000/messages';
+const BASE_URL = 'http://146.185.154.90:8000/messages';
 
 const Chat: React.FC = () => {
     const [messages, setMessages] = useState<Message[]>([]);
@@ -13,7 +13,7 @@ const Chat: React.FC = () => {
     useEffect(() => {
         const fetchMessages = async () => {
             try {
-                const response = await axios.get<Message[]>(API_URL, {
+                const response = await axios.get<Message[]>(BASE_URL, {
                     params: lastDatetime ? { datetime: lastDatetime } : {},
                 });
                 setMessages((prevMessages) => [...prevMessages, ...response.data]);
@@ -21,7 +21,7 @@ const Chat: React.FC = () => {
                     setLastDatetime(response.data[response.data.length - 1].datetime);
                 }
             } catch (error) {
-                console.error("Ошибка при получении сообщений:", error);
+                console.error("Error", error);
             }
         };
 
@@ -37,9 +37,9 @@ const Chat: React.FC = () => {
             data.set('message', message);
             data.set('author', 'Admin');
 
-            await axios.post(API_URL, data);
+            await axios.post(BASE_URL, data);
         } catch (error) {
-            console.error("Ошибка при отправке сообщения:", error);
+            console.error("Error", error);
         }
     };
 
