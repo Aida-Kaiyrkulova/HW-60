@@ -1,19 +1,19 @@
 .message-list {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .message {
-    background-color: #f1f1f1;
-    border-radius: 8px;
-    padding: 10px;
-    margin-bottom: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .author {
-    color: #007bff;
+  color: #007bff;
 }
 
 .datetime {
-    color: #666;
+  color: #666;
 }
